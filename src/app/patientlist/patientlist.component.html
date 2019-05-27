@@ -1,0 +1,64 @@
+<div class = container>
+  <h1>Patients List  </h1>
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Mobile</th>
+    </tr>
+   
+  </thead>
+  <tbody>
+    <tr  *ngFor="let Patient of patient" (click)="check(Patient.id)">
+      <td>{{Patient.id}}</td>
+      <td>{{Patient.name}}</td>
+      <td>{{Patient.gender}}</td>
+      <td>{{Patient.mobile}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="openModal(template)" (click)="connect()">SHOW</button></td> 
+    </tr>
+
+
+    <!-- <div *ngIf="show_dialog">
+      <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>Heartbeat</th>
+            <th>BP </th>
+            <th>ECG</th>
+        </tr>
+        <tr>
+            <td>{{heartRate}}</td>
+            <td>{{bp}}</td>
+            <td>{{ecg}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div> -->
+    
+  </tbody>
+</table>
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Patient Info</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="disconnect()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="heartBeatClass">
+			    	<label for="bp">{{bp}}</label>
+			    	<label id ="heartRate" for="heartBeat"></label>
+			    </div>
+			    <div class="bpClass">
+			    	<label for="BP">{{heartRate}}</label>
+			    	
+			    </div>
+			    <div class="ecgClass">
+			    	<label for="ecg">{{ecg}}</label>
+			    	
+			    </div>
+    </div>
+  </ng-template>
+</div>
